@@ -1,4 +1,8 @@
-// index.js
+import dotenv from 'dotenv';
+import cors from 'cors';
+import express from 'express';
+import { userRouter } from './src/routes/user.route';
+
 
 dotenv.config();    // .env 파일 사용 (환경 변수 관리)
 
@@ -11,6 +15,7 @@ app.use(express.static('public'));          // 정적 파일 접근
 app.use(express.json());                    // request의 본문을 json으로 해석할 수 있도록 함 (JSON 형태의 요청 body를 파싱하기 위함)
 app.use(express.urlencoded({extended: false})); // 단순 객체 문자열 형태로 본문 데이터 해석
 
+app.use('/user', userRouter);
 // (...)
 
 app.use((err, req, res, next) => {
