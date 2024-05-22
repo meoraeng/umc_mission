@@ -2,7 +2,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import express from 'express';
 import { userRouter } from './src/routes/user.route';
-
+import { specs } from './config/swagger.config.js';
+import SwaggerUi from 'swagger-ui-express';
 
 dotenv.config();    // .env 파일 사용 (환경 변수 관리)
 
@@ -17,6 +18,8 @@ app.use(express.urlencoded({extended: false})); // 단순 객체 문자열 형�
 
 app.use('/user', userRouter);
 // (...)
+
+app.use('/api-docs', SwaggerUi.serve, SwaggerUi.setup(specs));
 
 app.use((err, req, res, next) => {
     // 템플릿 엔진 변수 설정
