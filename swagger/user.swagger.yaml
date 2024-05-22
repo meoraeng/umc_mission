@@ -1,8 +1,8 @@
 paths:
-  /user/signin:
+  /member/signin:
     post:
       tags:
-        - User
+        - Member
       summary: 회원가입
       parameters:
       - name: signIn
@@ -38,10 +38,6 @@ paths:
               type: string
               description: 주소
               example: swagger Test address
-            specAddr:
-              type: string
-              description: 상세 주소
-              example: swagger Test specAddr
             phone:
               type: string
               description: 전화 번호
