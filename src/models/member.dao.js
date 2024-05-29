@@ -19,7 +19,6 @@ export const addMember = async (data) => {
         return result[0].insertId;
 
     }catch(err) {
-        console.log("catched error:", err);
         throw new BaseError(status.PARAMETER_IS_WRONG);
     }
 }
