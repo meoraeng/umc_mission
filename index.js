@@ -6,6 +6,7 @@ import { specs } from './config/swagger.config.js';
 import SwaggerUi from 'swagger-ui-express';
 import { status } from './config/response.status.js';
 import { response } from './config/response.js';
+import { storeRouter } from './src/routes/store.route.js';
 
 dotenv.config();    // .env 파일 사용 (환경 변수 관리)
 
@@ -19,6 +20,7 @@ app.use(express.json());                    // request의 본문을 json으로 �
 app.use(express.urlencoded({extended: true})); // 단순 객체 문자열 형태로 본문 데이터 해석
 
 app.use('/member', memberRouter);
+app.use('/store', storeRouter);
 // (...)
 
 app.use('/api-docs', SwaggerUi.serve, SwaggerUi.setup(specs));
