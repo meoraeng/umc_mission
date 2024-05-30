@@ -17,8 +17,9 @@ export const joinMember = async (body) => {
         'phone': phone,
         "prefer": pefer
     });
-
-    if(joinMemberData == -1){
+    let emailDuplicated = -1;
+    
+    if(joinMemberData == emailDuplicated){
         throw new BaseError(status.EMAIL_ALREADY_EXIST);
     }else{
         for (let i = 0; i < prefer.length; i++) {
