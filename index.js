@@ -12,7 +12,7 @@ dotenv.config();    // .env 파일 사용 (환경 변수 관리)
 
 const app = express();
 
-// server setting - veiw, static, body-parser etc..
+// server setting - view, static, body-parser etc..
 app.set('port', process.env.PORT || 3000)   // 서버 포트 지정
 app.use(cors());                            // cors 방식 허용
 app.use(express.static('public'));          // 정적 파일 접근
@@ -21,7 +21,6 @@ app.use(express.urlencoded({extended: true})); // 단순 객체 문자열 형태
 
 app.use('/member', memberRouter);
 app.use('/store', storeRouter);
-// (...)
 
 app.use('/api-docs', SwaggerUi.serve, SwaggerUi.setup(specs));
 
